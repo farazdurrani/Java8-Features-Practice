@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -21,8 +22,13 @@ public class Predicate1 {
 		int values2[] = { 1, 2, 3, 15, 16, 17, 23, 24, 25 };
 		Arrays.stream(values2)
 			.filter(greaterThan10_2) // We have to use different Predicate
-//			.collect(Collectors.toList()); // this throws an error.
+//			.collect(Collectors.toList()); // this throws an error. To actually convert it, use boxed(). See below
 			.forEach(System.out::println);
+
+		Arrays.stream(values2)
+			.boxed() //But if we use boxed, then we can convert int arrays to list using Collectors.toList
+			.filter(lesserThan20.and(greaterThan10))
+			.collect(Collectors.toList());
 
 	}
 
