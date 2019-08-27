@@ -1,6 +1,7 @@
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.BiConsumer;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class MapStream1 {
@@ -33,6 +34,18 @@ public class MapStream1 {
 							word.getValue());
 					});
 
+			});
+
+		// testing Function.identity(). It is still ambigous what Function.identity is doing;
+		map.entrySet()
+			.stream()
+			.collect(Collectors.groupingBy(Function.identity(),
+				Collectors.counting()))
+			.forEach((x, y) -> {
+				System.out
+					.println("Function.identity() returns key of map: " + x); // Function.identity() should return just
+																				// the key. But it is returning
+																				// something else.
 			});
 
 	}
