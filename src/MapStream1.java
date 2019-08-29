@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 public class MapStream1 {
 	public static void main(String[] args) {
 		Map<String, Long> map = Map.of("faraz", 1L, "saad", 2L, "Hassan", 3L);
+
 		map.entrySet()
 			.forEach((entry) -> {
 				System.out.println(entry.getKey() + " " + entry.getValue());
@@ -47,6 +48,5 @@ public class MapStream1 {
 																				// the key. But it is returning
 																				// something else.
 			});
-
 	}
 }
