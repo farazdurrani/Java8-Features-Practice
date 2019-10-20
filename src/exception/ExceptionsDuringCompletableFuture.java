@@ -20,6 +20,7 @@ public class ExceptionsDuringCompletableFuture {
 
 		// if an exception is thrown in any of the for loops, "Completed" is never printed. But, first for loop looks
 		// more readable.
+		
 		for (CompletableFuture<String> completableFuture : l) {
 			System.out.println(completableFuture.get());
 		}
